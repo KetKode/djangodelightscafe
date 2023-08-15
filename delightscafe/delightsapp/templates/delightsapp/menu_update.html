@@ -1,0 +1,16 @@
+{% extends "delightsapp/base.html" %}
+
+{% block head %}
+    <title>Update an Ingredient</title>
+{% endblock %}
+
+{% block content %}
+<div class="container-xxl">
+    <h1>Update an ingredient:</h1>
+    <form action="" method="POST">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <input type="submit" value="Submit"/>
+</form>
+</div>
+{% endblock %}
