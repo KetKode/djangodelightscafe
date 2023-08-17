@@ -1,10 +1,41 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends "delightsapp/base.html" %}
+
+{% block head %}
+    <title>Menu</title>
+{% endblock %}
+
+{% block content %}
+<div class="container-xxl">
+    <h1>Here is our menu:</h1>
+    <table id="menu" class="table table-success table-responsive table-striped table-bordered">
+        <tr>
+            <th>Menu Item</th>
+            <th>Price</th>
+            <th>Ingredients</th>
+            <th>Image</th>
+            <th></th>
+            <th></th>
+        </tr>
+        {% for menu_item in menu_items %}
+            <tr>
+                <td>{{ menu_item.name }}</td>
+                <td>$ {{ menu_item.price_per_entry }}</td>
+                <td>
+                {% for recipe_requirement in menu_item.reciperequirement_set.all %}
+
+                {{ recipe_requirement.ingredient.name }},
+                {% endfor %}
+                    </td>
+                <td class="align-middle">
+                    {% if menu_item.item_image %}
+                    <img class="menu-image" src="{{ menu_item.item_image.url }}">
+                    {% endif %}
+                </td>
+                <td><a type="button" class="btn btn-success rounded-pill" href="{% url 'menuupdate' menu_item.id %}">Update</a></td>
+            <td><a type="button" class="btn btn-danger rounded-pill" href="{% url 'menudelete' menu_item.id %}">Delete</a></td>
+                        {% endfor %}
+            </tr>
+    </table>
+    <a href="{% url 'menucreate' %}" type="button" class="btn btn-success rounded-pill">Add menu item</a>
+</div>
+{% endblock %}

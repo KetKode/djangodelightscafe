@@ -1,0 +1,34 @@
+.card-img {
+    height: 200px;
+    object-fit: cover;
+}
+
+.nav-link {
+
+font-family: 'Varela Round', sans-serif;
+color: #1B1A17;
+
+}
+
+h2, h3, p {
+
+font-family: 'Varela Round', sans-serif;
+
+}
+
+.container-xxl {
+    background-color: transparent;
+}
+
+body {
+
+    background-color: #F0ECE3;
+
+}
+
+.card {
+
+background-color: transparent;
+
+}
+

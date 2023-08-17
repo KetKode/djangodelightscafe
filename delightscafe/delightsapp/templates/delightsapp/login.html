@@ -1,10 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends "delightsapp/base.html" %}
+{% load static %}
+
+    {% block head %}<title>Log In</title>
+
+<link rel="stylesheet" href="{% static 'delightsapp/css/styles.css' %}">
+
+{% endblock %}
+
+{% block header %} {% endblock %}
+
+
+{% block content %}
+
+<div class="container d-flex align-items-center justify-content-center">
+  <div class="row">
+    <div class="col">
+      <div class="px-4 py-5 my-5 text-center">
+        <img src="{% static 'delightsapp/images/icon.png' %}" alt="coffee" height="100" width="100">
+        <form method="post" action="{% url 'login' %}">
+          {% csrf_token %}
+          <div class="form-group">
+            <label for="username"></label>
+            <input type="text" name="username" placeholder="Username" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="password"></label>
+            <input type="password" name="password" placeholder="Password" class="form-control">
+          </div>
+          <input type="submit" value="Login" class="btn btn-warning rounded-pill mt-4">
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "delightsapp/base.html" %}
+
+    {% block head %}<title>Purchases</title>{% endblock %}
+
+  {% block content %}
+<div class="container-xxl">
+	<h1>Here are all the purchases:</h1>
+    <table id="ingredients" class="table table-success table-striped table-bordered">
+        <tr>
+            <th>Menu Item</th>
+            <th>Timestamp</th>
+        </tr>
+        <tr>
+            {% for purchase in purchase_list %}
+        </tr>
+        <tr>
+            <td>{{ purchase.menu_item }}</td>
+            <td>{{ purchase.timestamp }}</td>
+        </tr>
+          {% endfor %}
+
+    </table>
+    </div>
+{% endblock %}

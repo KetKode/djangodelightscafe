@@ -1,10 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends "delightsapp/base.html" %}
+
+{% block head %}
+    <title>Create an Ingredient</title>
+{% endblock %}
+
+{% block content %}
+<div class="container-xxl">
+    <h1>Create an ingredient:</h1>
+   <form method="post">
+  <p>Are you sure you want to delete "{{ object }}"?</p>
+  <input type="submit" value="Confirm" />
+    </form>
+</div>
+{% endblock %}
